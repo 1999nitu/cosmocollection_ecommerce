@@ -1,0 +1,152 @@
+import { useEffect, useState } from "react"
+import { Navigate } from "react-router-dom";
+import axios from "axios"
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import ApiServices from "../../ApiServices";
+
+export default function AddProduct(){
+const [allCategory,setAllCategory]=useState([])
+const [CategoryId,setCategoryId]=useState("")
+useEffect(()=>{
+    getCategory()
+},[])
+const getCategory=()=>{
+    ApiServices.allcategory()
+    .then((res)=>{
+        if(res.data.success)
+            {
+                setAllCategory(res.data.data)
+            }
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
+
+    // const [name,setName]=useState("")
+    // const [brand,setBrand]=useState("")
+    // const [category,setCategory]=useState("")
+    // const [subcategory,setSubCategory]=useState("")
+    // const [image,setImage]=useState({})
+    // const [imageName,setImageName]=useState("")
+    // const [price,setPrice]=useState("")
+    // const [quantity,setQuantity]=useState("")
+
+
+
+    // const token=sessionStorage.getItem("token")
+    // if(!token)
+    //     {
+    //         return <Navigate to={"/login"}/>
+    //     }
+
+        // const changeImage=(e)=>{
+        //     setImageName(e.target.value)
+        //     console.log(e.target.files[0]);
+        //     setImage(e.target.files[0]);
+        // }
+
+        const handleForm=(e)=>{
+            // {header:{
+            //     Authorization:token
+            // }}
+            e.preventDefault()
+    
+            // store form data
+            // let data=new FormData()
+            // data.append("productName",name)
+            // data.append("productImage",image)
+            // data.append("price",price)
+            // data.append("quantity",quantity)
+            // data.append("categoryId",category)
+            // data.append("subcategoryId",subcategory)
+            // data.append("brand",brand)
+
+            
+
+            let obj={
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                }
+            }
+            console.log(obj)
+            // console.log(data)
+            axios.post("http://localhost:4000/apis/product/add",data,obj)
+            .then((res)=>{
+                console.log(res)
+                if(res.data.success==true)
+                {
+                    toast.success(res.data.message)
+                    // setName("") 
+                    // setImage({})
+                    // setImageName("")
+                    // //  this  will empty form
+                    // setPrice("") 
+                    // setQuantity("") 
+                    // setCategory("") 
+                    // setSubCategory("") 
+                    // setBrand("") 
+                    
+                }else{
+                    toast.error(res.data.message)  
+                }
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+    
+        }
+    return(
+        <>
+        <h1>Add Product</h1>
+        <br/>
+            <form onSubmit={handleForm}>
+                <label> Name</label>
+                {/* <input value={name} onChange={(e)=>{setName(e.target.value)}}/> */}
+                <input/>
+                <br/>
+                <br/>
+                <label> Brand</label>
+                {/* <input value={brand} onChange={(e)=>{setBrand(e.target.value)}}/> */}
+                <input/>
+                <br/>
+                <br/>
+                <label> Category</label>
+               <select value={CategoryId} onChange={(e)=>{setCategoryId(e.target.value)}}>
+
+                    <option selected disabled value={""}>Choose One </option>
+
+                    {allCategory?.map((el,index)=>(
+                        <option value={el._id}>{el.name}</option>
+                    ))}
+               </select>
+                <br/>
+                <br/>
+                <label> Sub Category</label>
+                {/* <select value={subcategory} onChange={(e)=>{setSubCategory(e.target.value)}}>  */}
+                <input/>
+                   
+                {/* </select> */}
+                <br/>
+                <br/>
+                <label> Image</label>
+                {/* <input type="file" value={imageName} onChange={changeImage}/> */}
+                <input/>
+                <br/>
+                <br/>
+                <label> Price</label>
+                {/* <input  type="number" min={"0"} value={price} onChange={(e)=>{setPrice(e.target.value)}}/> */}
+                <input/>
+                <br/>
+                <br/>
+                <label> Quantity</label>
+                {/* <input value={quantity} onChange={(e)=>{setQuantity(e.target.value)}}/> */}
+                <input/>
+                <br/>
+                <br/>
+                <button>Submit</button>
+            </form>
+        </>
+    )
+}

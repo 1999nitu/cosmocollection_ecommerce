@@ -14,19 +14,23 @@ const c_id=param.id
 
 useEffect(
     ()=>{
-      let data={
-
-      }
-      if(!!c_id){
-        data.subCategoryId=c_id
-      }
+     
   
        // console.log("btn")
    getData()
+
    },[]
    )
    
        const getData=()=>{
+
+        let data={
+          status:true
+        }
+        if(!!c_id){
+          data.subcategoryId=c_id
+        }
+
            ApiServices.allproduct(data)
            .then((res)=>{
                console.log(res)
@@ -37,6 +41,10 @@ useEffect(
    
            })
    
+       }
+
+       const cart=()=>{
+        console.log(data)
        }
    
        return(
@@ -54,9 +62,9 @@ useEffect(
    
                    <div className="men-cart-pro">
                      <div className="inner-men-cart-pro">
-                       <a href="/skincare" className="link-product-add-cart">
+                       <Link to={"/userviewproduct/" +el?._id} className="link-product-add-cart">
                          Quick View
-                       </a>
+                       </Link>
                      </div>
                    </div>
    
@@ -105,12 +113,22 @@ useEffect(
                            defaultValue=" "
                          />
                          
-                         <input
+                         {/* <input
                            type="submit"
-                           name="submit"
+                           name="Add to Cart"
                            defaultValue="Add to cart"
                            className="button"
-                         />
+                         /> */}
+
+                         <button className="btn btn-info" onClick={
+                          ()=>{
+                            cart(el.categoryId, el.subcategoryId, el.productId)
+                          }
+                         }>
+                          Add to Cart
+                         </button>
+
+
                        
                        </fieldset>
                      </form>

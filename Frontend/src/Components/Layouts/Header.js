@@ -20,7 +20,7 @@ export default function Header(){
           </a>
         </li>
         <li>
-          <i className="fa fa-phone" aria-hidden="true" /> Call : 01234567898
+          <i className="fa fa-phone" aria-hidden="true" /> Call : 123456789
         </li>
         <li>
           <i className="fa fa-envelope-o" aria-hidden="true" />{" "}

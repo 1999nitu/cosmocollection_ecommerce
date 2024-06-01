@@ -51,9 +51,6 @@ add = (req,res) =>{
             pobj.categoryId = req.body.categoryId
             pobj.subcategoryId = req.body.subcategoryId
             pobj.brand = req.body.brand
-            
-              
-
 
                 pobj.save()
                 .then(saveRes =>{
@@ -105,7 +102,7 @@ getalldata = async(req,res) =>{
     //     skipcount = (req.body.pageno-1)*limvalue
     // }
 
-    product.find() 
+    product.find(req.body) 
     // .limit(limvalue)   //limit that how many product will be shown on 1 page
     // .skip(skipcount)   // skip last pages 
     .populate("categoryId")

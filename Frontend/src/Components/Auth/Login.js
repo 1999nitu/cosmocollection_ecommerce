@@ -31,7 +31,7 @@ export default function Login(){
           nav("/admin")
       }
       else{
-        nav("/addproduct")
+        nav("/userviewcategory")
       }
     }else{
       toast.error(res.data.message)

@@ -53,13 +53,15 @@ getData()
               <div className="item-info-product ">
 
                 <h4>
-                  <Link to={"/userviewsubcategory/${el?._id}"}>{el.categoryName}</Link>
+                  <Link to={"/userviewsubcategory/" +el?._id}>{el.categoryName}</Link>
                 </h4>
 
                 <div className="info-product-price">
                   <span className="item_price">$120.99</span>
                   <del>$189.71</del>
                 </div>
+
+
                 <div className="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
                   <form action="#" method="post">
                     <fieldset>
@@ -106,6 +108,9 @@ getData()
               </div>
             </div>
           </div>
+
+        
+
           </Fragment>
           )
         )}

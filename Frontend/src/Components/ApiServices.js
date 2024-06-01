@@ -64,9 +64,9 @@ class ApiServices{
     
         }
 
-   allproduct()
+   allproduct(data)
         {
-            return axios.post(BASE_URL+"apis/product/getall")
+            return axios.post(BASE_URL+"apis/product/getall",data)
         }
 
     singleproduct(data)

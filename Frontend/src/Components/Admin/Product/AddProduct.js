@@ -3,14 +3,18 @@ import ApiServices from "../../ApiServices"
 import axios from "axios"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 export default function AddProduct(){
     const [allCategory,setAllCategory]=useState([])
     const [categoryId,setCategoryId]=useState("")
+    const [subCategoryId,setSubCategoryId]=useState("")
     const [data,setData]=useState("")
     const [allSubCategory,setAllSubCategory]=useState([])
+
+  const nav=useNavigate()
+
 
 
 useEffect(()=>{
@@ -39,9 +43,7 @@ const getSubCategory=()=>{
     }
     if(!!categoryId){
         
-        
           data.categoryId=categoryId
-        
     }
 
     ApiServices.allsubcategory(data)
@@ -67,11 +69,11 @@ const getSubCategory=()=>{
 
 
 
-    const token=sessionStorage.getItem("token")
-    if(!token)
-        {
-            return <Navigate to={"/login"}/>
-        }
+    // const token=sessionStorage.getItem("token")
+    // if(!token)
+    //     {
+    //         return <Navigate to={"/login"}/>
+    //     }
 
         const changeImage=(e)=>{
             setImageName(e.target.value)
@@ -91,8 +93,8 @@ const getSubCategory=()=>{
             data.append("productImage",image)
             data.append("price",price)
             data.append("quantity",quantity)
-            data.append("categoryId",category)
-            data.append("subcategoryId",subcategory)
+            data.append("categoryId",categoryId)
+            data.append("subcategoryId",subCategoryId)
             data.append("brand",brand)
 
             
@@ -119,6 +121,9 @@ const getSubCategory=()=>{
                     setCategory("") 
                     setSubCategory("") 
                     setBrand("") 
+
+                nav("/manageproduct")
+
                     
                 }else{
                     toast.error(res.data.message)  
@@ -133,7 +138,7 @@ const getSubCategory=()=>{
 
     return(
         <>
-                 <form>
+                 <form onSubmit={handleForm}>
 
                 <label>Name</label>
                 <input value={name} onChange={(e)=>{setName(e.target.value)}}/>
@@ -163,7 +168,7 @@ const getSubCategory=()=>{
                 <br/>
 
                 <label>Sub-Category</label>
-                <select>
+                <select value={subCategoryId} onChange={(e)=>{setSubCategoryId(e.target.value)}}>
                     <option selected disabled value={""}>Choose Sub-cat</option>
                     {allSubCategory?.map((el,index)=>(
                     <option value={el._id}>{el.subcategoryName}-{el?.categoryId?.categoryName}</option>

@@ -44,7 +44,7 @@ export default function Register(){
                             nav("/admin")
                         }
                         else{
-                        nav("/home")
+                            nav("/home")
                         }
                 }})
                 .catch((err)=>{
@@ -61,7 +61,7 @@ export default function Register(){
     }
     return(
         <>
-
+       
         <div className="col-md-6 contact-form">
             <h4 className="white-w3ls">
               Register <span>Form</span>

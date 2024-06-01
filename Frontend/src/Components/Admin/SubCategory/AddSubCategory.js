@@ -11,10 +11,20 @@ export default function AddSubCategory(){
     const [allCategory,setAllCategory]=useState([])
     const [categoryId,setCategoryId]=useState("")
 
+    const [name,setName]=useState("")
+    const [description,setDescription]=useState("")
+    const [category,setCategory]=useState("")
+    const [image,setImage]=useState({})
+    const [imageName,setImageName]=useState("")
+
+    const nav=useNavigate()
+
+
 
 useEffect(()=>{
     getCategory()
-},[])
+    },[])
+
 const getCategory=()=>{
     ApiServices.allcategory()
     .then((res)=>{
@@ -29,19 +39,12 @@ const getCategory=()=>{
 }
 
 
- const [name,setName]=useState("")
-    const [category,setCategory]=useState("")
-    const [image,setImage]=useState({})
-    const [imageName,setImageName]=useState("")
-
-
     // const token=sessionStorage.getItem("token")
     // if(!token)
     //     {
     //         return <Navigate to={"/login"}/>
     //     }
 
-  const nav=useNavigate()
 
 
         const changeImage=(e)=>{
@@ -58,9 +61,10 @@ const getCategory=()=>{
     
             // store form data
             let data=new FormData()
-            data.append("productName",name)
-            data.append("productImage",image)
-            data.append("categoryId",category)
+            data.append("subcategoryName",name)
+            data.append("subcategoryImage",image)
+            data.append("categoryId",categoryId)
+            data.append("description",description)
             
 
             let obj={
@@ -82,6 +86,7 @@ const getCategory=()=>{
                     //  this  will empty form
                     
                     setCategory("") 
+                    setDescription("") 
 
                 nav("/managesubcategory")
 
@@ -119,8 +124,16 @@ const getCategory=()=>{
                 <br/>
                 <br/>
 
+                <label>Description</label>
+                <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
+
+                <br/> <br/>
+
+                
+
                 <button>submit</button>
             </form>
+            
             <ToastContainer
              position="bottom-left"
              autoClose={5000}

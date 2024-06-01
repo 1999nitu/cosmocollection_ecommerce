@@ -44,14 +44,8 @@ import UserViewProduct from './Components/User/UserViewProduct';
 import UserViewCoupon from './Components/User/UserViewCoupon';
 import UserViewCategory from './Components/User/UserViewCategory';
 
-import SkinProducts from './Components/User/SkinProducts';
 import SkinCare from './Components/User/SkinCare';
-import Fragrance from './Components/User/Fragrance';
-import MakeUp from './Components/User/MakeUp';
-import HairCair from './Components/User/HairCare';
-import Jewelery from './Components/User/Jewelery';
-import BabyMomCare from './Components/User/BabyMomCare';
-import PersonalCare from './Components/User/PersonalCare';
+
 
 
 
@@ -105,15 +99,8 @@ function App() {
 
 
         <Route path='/userviewcategory' element={<UserViewCategory/>}/>
-        <Route path='/skinproducts/:id' element={<SkinProducts/>} />
         <Route path='/skincare' element={<SkinCare/>} />
-        <Route path='/fragrance' element={<Fragrance/>} />
-        <Route path='/makeup' element={<MakeUp/>} />
-        <Route path='/haircare' element={<HairCair/>} />
-        <Route path='/jewelery' element={<Jewelery/>} />
-        <Route path='/babymomcare' element={<BabyMomCare/>} />
-        <Route path='/personalcare' element={<PersonalCare/>} />
-
+        
 
 
         <Route path='/apiservices' element={<ApiServices/>}/>

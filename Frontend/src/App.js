@@ -45,6 +45,7 @@ import UserViewCoupon from './Components/User/UserViewCoupon';
 import UserViewCategory from './Components/User/UserViewCategory';
 
 import SkinCare from './Components/User/SkinCare';
+import UserLogin from './Components/User/UserLogin';
 
 
 
@@ -96,6 +97,8 @@ function App() {
         <Route path='/userviewsubcategory/:id' element={<UserViewSubCategory/>}/>
         <Route path='/userviewproduct/:id' element={<UserViewProduct/>}/>
         <Route path='/userviewcoupon' element={<UserViewCoupon/>}/>
+        <Route path='/userlogin' element={<UserLogin/>}/>
+
 
 
         <Route path='/userviewcategory' element={<UserViewCategory/>}/>

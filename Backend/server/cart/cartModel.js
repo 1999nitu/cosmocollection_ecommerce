@@ -4,7 +4,7 @@ const cartSchema = new mongoose.Schema({
     subcategoryId: {type: mongoose.Schema.Types.ObjectId, default: null ,ref:'subcategories'},
     productId: {type: mongoose.Schema.Types.ObjectId, default: null ,ref:'products'},
     userId: { type: mongoose.Schema.Types.ObjectId, default: null ,ref:'users'},               
-    quantity: {type: Number,  default: null},
+    quantity: {type: Number,  default: 1},
     status:{type: Boolean, default: true},
     createdAt:{type: Date, default: Date.now()},
 

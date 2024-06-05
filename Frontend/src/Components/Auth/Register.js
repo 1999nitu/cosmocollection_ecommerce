@@ -41,10 +41,10 @@ export default function Register(){
                         sessionStorage.setItem("token",res.data.token)
                         if(res.data.data.userType==1)
                         {
-                            nav("/admin")
+                            nav("/managecategory")
                         }
                         else{
-                            nav("/home")
+                            nav("/login")
                         }
                 }})
                 .catch((err)=>{

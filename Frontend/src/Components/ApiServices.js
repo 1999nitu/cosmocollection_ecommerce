@@ -146,6 +146,11 @@ class ApiServices{
         return axios.post(BASE_URL+"apis/coupon/add",{},{headers:obj})
 
     }
+
+    addcart(data){
+        return axios.post(BASE_URL+"apis/cart/add",data)
+    }
+
 }   
 
 export default new ApiServices

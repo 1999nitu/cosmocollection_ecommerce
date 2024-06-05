@@ -287,7 +287,7 @@ export default function Home(){
       <div className="banner_bottom_agile_info_inner_w3ls">
         <div className="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
           <figure className="effect-roxy">
-            <img src="/assets/images/bottom1.jpg" alt=" " className="img-responsive" />
+            <img src="/assets/images/br1.jpg" alt=" " className="img-responsive" />
             <figcaption>
               <h3>
                 <span>F</span>all Ahead
@@ -298,7 +298,7 @@ export default function Home(){
         </div>
         <div className="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
           <figure className="effect-roxy">
-            <img src="/assets/images/bottom2.jpg" alt=" " className="img-responsive" />
+            <img src="/assets/images/br2.jpg" alt=" " className="img-responsive" />
             <figcaption>
               <h3>
                 <span>F</span>all Ahead
@@ -357,7 +357,7 @@ export default function Home(){
         <a href="womens.html">
           <div className="bb-left-agileits-w3layouts-inner grid">
             <figure className="effect-roxy">
-              <img src="/assets/images/bb1.jpg" alt=" " className="img-responsive" />
+              <img src="/assets/images/br6.jpg" alt=" " className="img-responsive" />
               <figcaption>
                 <h3>
                   <span>S</span>ale{" "}
@@ -373,7 +373,7 @@ export default function Home(){
           <div className="bb-middle-agileits-w3layouts grid">
             <figure className="effect-roxy">
               <img
-                src="/assets/images/bottom3.jpg"
+                src="/assets/images/br7.jpg"
                 alt=" "
                 className="img-responsive"
               />
@@ -390,7 +390,7 @@ export default function Home(){
           <div className="bb-middle-agileits-w3layouts forth grid">
             <figure className="effect-roxy">
               <img
-                src="/assets/images/bottom4.jpg"
+                src="/assets/images/nail11.jpg"
                 alt=" "
                 className="img-responsive"
               />
@@ -411,7 +411,7 @@ export default function Home(){
   <div className="agile_last_double_sectionw3ls">
     <div className="col-md-6 multi-gd-img multi-gd-text ">
       <a href="womens.html">
-        <img src="/assets/images/bot_1.jpg" alt=" " />
+        <img src="/assets/images/br9.jpg" alt=" " />
         <h4>
           Flat <span>50%</span> offer
         </h4>
@@ -419,7 +419,7 @@ export default function Home(){
     </div>
     <div className="col-md-6 multi-gd-img multi-gd-text ">
       <a href="womens.html">
-        <img src="/assets/images/bot_2.jpg" alt=" " />
+        <img src="/assets/images/n1.jpg" alt=" " />
         <h4>
           Flat <span>50%</span> offer
         </h4>

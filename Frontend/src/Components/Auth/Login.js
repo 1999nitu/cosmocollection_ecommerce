@@ -25,10 +25,11 @@ export default function Login(){
     {
       toast.success(res.data.message)
       sessionStorage.setItem("token",res.data.token)
+      sessionStorage.setItem("userId",res.data.data._id)
       localStorage.setItem("token",res.data.token)
       if(res.data.data.userType==1)
       {
-          nav("/admin")
+          nav("/managecategory")
       }
       else{
         nav("/userviewcategory")

@@ -4,10 +4,16 @@
    import ApiServices, { BASE_URL } from "../ApiServices";
    import Moment from "react-moment"
    import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
    
    
    export default function UserViewProduct(){
    const [data,setData]=useState([])
+   
+   
+   
+
 
    const param=useParams()
 const c_id=param.id
@@ -43,8 +49,31 @@ useEffect(
    
        }
 
-       const cart=()=>{
+       const cart=(categoryId,subcategoryId,productId)=>{
+        // console.log(data)
+
+        let data={
+          categoryId:categoryId,
+          subcategoryId:subcategoryId,
+          productId:productId,
+          userId:sessionStorage.getItem("userId"),
+          quantity:1
+        }
         console.log(data)
+        ApiServices.addcart(data)
+        .then((res)=>{
+          if(res.data.success==true){
+            toast.success(res.data.message)
+
+          }
+          else{
+            toast.error(res.data.message)
+          }
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+       
        }
    
        return(
@@ -62,9 +91,9 @@ useEffect(
    
                    <div className="men-cart-pro">
                      <div className="inner-men-cart-pro">
-                       <Link to={"/userviewproduct/" +el?._id} className="link-product-add-cart">
+                       <a href="#"className="link-product-add-cart">
                          Quick View
-                       </Link>
+                       </a>
                      </div>
                    </div>
    
@@ -122,7 +151,7 @@ useEffect(
 
                          <button className="btn btn-info" onClick={
                           ()=>{
-                            cart(el.categoryId, el.subcategoryId, el.productId)
+                            cart(el.categoryId._id, el.subcategoryId._id, el._id)
                           }
                          }>
                           Add to Cart

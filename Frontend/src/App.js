@@ -46,6 +46,8 @@ import UserViewCategory from './Components/User/UserViewCategory';
 
 import SkinCare from './Components/User/SkinCare';
 import UserLogin from './Components/User/UserLogin';
+import AllCart from './Components/User/AllCart';
+import ViewOrder from './Components/Admin/ViewOrder';
 
 
 
@@ -72,6 +74,9 @@ function App() {
         <Route path='/register' element={<Register/>}/>
 
         {/* <Route path='/contact1' element={<Contact1/>}/> */}
+
+
+        <Route path='/vieworder' element={<ViewOrder/>}/>
 
 
         <Route path='/addcategory' element={<AddCategory/>}/>
@@ -103,6 +108,7 @@ function App() {
 
         <Route path='/userviewcategory' element={<UserViewCategory/>}/>
         <Route path='/skincare' element={<SkinCare/>} />
+        <Route path='/allcart' element={<AllCart/>} />
         
 
 

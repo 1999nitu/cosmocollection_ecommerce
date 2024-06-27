@@ -40,6 +40,11 @@ getData()
 
     return(
         <>
+
+        
+<div className="container">
+<div className="row" style={{marginTop:"10vh", marginBottom:"10vh"}}>
+
         {data?.map(
           (el,index)=>(
             <Fragment>
@@ -72,55 +77,18 @@ getData()
                   <span className="item_price">$120.99</span>
                   <del>$189.71</del>
                 </div>
-                <div className="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                  <form action="#" method="post">
-                    <fieldset>
-                      <input type="hidden" name="cmd" defaultValue="_cart" />
-                      <input type="hidden" name="add" defaultValue={1} />
-                      <input type="hidden" name="business" defaultValue=" " />
-
-                      <input
-                        type="hidden"
-                        name="item_name"
-                        defaultValue="Skin Care"
-                      />
-
-                      <input type="hidden" name="amount" defaultValue="30.99" />
-                      <input
-                        type="hidden"
-                        name="discount_amount"
-                        defaultValue={1.0}
-                      />
-
-                      <input
-                        type="hidden"
-                        name="currency_code"
-                        defaultValue="USD"
-                      />
-
-                      <input type="hidden" name="return" defaultValue=" " />
-                      <input
-                        type="hidden"
-                        name="cancel_return"
-                        defaultValue=" "
-                      />
-                      
-                      <input
-                        type="submit"
-                        name="submit"
-                        defaultValue="Add to cart"
-                        className="button"
-                      />
+              
+              <Link to={"/userviewproduct/" +el?._id} className="btn btn-success">View More</Link>
                     
-                    </fieldset>
-                  </form>
-                </div>
+               
               </div>
             </div>
           </div>
           </Fragment>
           )
         )}
+        </div>
+        </div>
         </>
     )
 }

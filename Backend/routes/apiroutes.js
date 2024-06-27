@@ -104,6 +104,7 @@ router.post("/cart/delete", cartController.deleteData)
 router.post("/orders/add", orderController.add)
 router.post("/orders/getall", orderController.getallData)
 router.post("/orders/update", orderController.updateData)
+router.post("/orders/delete", orderController.softdeleteData)
 
 
 module.exports = router

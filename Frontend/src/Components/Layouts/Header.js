@@ -330,6 +330,13 @@ export default function Header(){
           </form>
         </div>
       </div>
+      <Link to={"/allcart"}>
+      <button className="btn btn-info">View Cart
+
+      </button>
+      </Link>
+      
+
       <div className="clearfix" />
     </div>
   </div>

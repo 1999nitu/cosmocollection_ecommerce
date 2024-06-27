@@ -148,7 +148,57 @@ class ApiServices{
     }
 
     addcart(data){
-        return axios.post(BASE_URL+"apis/cart/add",data)
+
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/cart/add",data,{headers:obj})
+    }
+
+    allcart(){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/cart/getall",{},{headers:obj})
+
+    }
+
+    deletecart(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/cart/delete",data,{headers:obj})
+
+    }
+
+    orderplace(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/orders/add",data,{headers:obj})
+
+    }
+
+    vieworder(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/orders/getall",{},{headers:obj})
+
+    }
+
+    orderstatus(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/orders/update",data,{headers:obj})
+    }
+
+    deleteData(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/orders/delete",data,{headers:obj})
     }
 
 }   

@@ -1,22 +1,16 @@
-
-    
-   import { Fragment, useEffect, useState } from "react";
-   import ApiServices, { BASE_URL } from "../ApiServices";
-   import Moment from "react-moment"
-   import { Link, useParams } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import ApiServices, { BASE_URL } from "../ApiServices";
+import Moment from "react-moment"
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
    
    
    export default function UserViewProduct(){
    const [data,setData]=useState([])
-   
-   
-   
-
 
    const param=useParams()
-const c_id=param.id
+   const c_id=param.id
 
 useEffect(
     ()=>{
@@ -50,7 +44,6 @@ useEffect(
        }
 
        const cart=(categoryId,subcategoryId,productId)=>{
-        // console.log(data)
 
         let data={
           categoryId:categoryId,
@@ -78,6 +71,28 @@ useEffect(
    
        return(
            <>
+             <div className="page-head_agile_info_w3l">
+    <div className="container">
+      <h3>
+        About <span>Us </span>
+      </h3>
+      {/*/w3_short*/}
+      <div className="services-breadcrumb">
+        <div className="agile_inner_breadcrumb">
+          <ul className="w3_short">
+            <li>
+              <a href="index.html">Home</a>
+              <i>|</i>
+            </li>
+            <li>About</li>
+          </ul>
+        </div>
+      </div>
+      {/*//w3_short*/}
+    </div>
+  </div>
+<div className="container">
+<div className="row" style={{marginTop:"10vh", marginBottom:"10vh"}}>
            {data?.map(
              (el,index)=>(
                <Fragment>
@@ -109,46 +124,8 @@ useEffect(
                      <span className="item_price">$120.99</span>
                      <del>$189.71</del>
                    </div>
-                   <div className="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                     <form action="#" method="post">
-                       <fieldset>
-                         <input type="hidden" name="cmd" defaultValue="_cart" />
-                         <input type="hidden" name="add" defaultValue={1} />
-                         <input type="hidden" name="business" defaultValue=" " />
-   
-                         <input
-                           type="hidden"
-                           name="item_name"
-                           defaultValue="Skin Care"
-                         />
-   
-                         <input type="hidden" name="amount" defaultValue="30.99" />
-                         <input
-                           type="hidden"
-                           name="discount_amount"
-                           defaultValue={1.0}
-                         />
-   
-                         <input
-                           type="hidden"
-                           name="currency_code"
-                           defaultValue="USD"
-                         />
-   
-                         <input type="hidden" name="return" defaultValue=" " />
-                         <input
-                           type="hidden"
-                           name="cancel_return"
-                           defaultValue=" "
-                         />
+                 
                          
-                         {/* <input
-                           type="submit"
-                           name="Add to Cart"
-                           defaultValue="Add to cart"
-                           className="button"
-                         /> */}
-
                          <button className="btn btn-info" onClick={
                           ()=>{
                             cart(el.categoryId._id, el.subcategoryId._id, el._id)
@@ -159,15 +136,15 @@ useEffect(
 
 
                        
-                       </fieldset>
-                     </form>
-                   </div>
+                       
                  </div>
                </div>
              </div>
              </Fragment>
              )
            )}
+           </div>
+           </div>
            </>
        )
    }

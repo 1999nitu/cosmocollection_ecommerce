@@ -4,22 +4,25 @@ add = async (req,res) => {
     totalcost = 0
 
     // console.log(req.body)
-
     // console.log("Total Price = ",totalcost)
     // return
 
     let orderObj = new orderModel()
     orderObj.name = req.body.name
+    console.log(req.body.name)
     orderObj.address = req.body.address
     orderObj.totalPrice = req.body.totalPrice
 
     for(odr of req.body.orderDetails)
     {
         // console.log("START")
-        // console.log(odr)
+        console.log(odr)
 
         orderObj.orderDetails.push(odr)
-        calculate = odr.quantity*odr.Price
+        calculate = parseInt(odr.quantity)* parseFloat(odr.Price)
+                            // total+=parseInt(el.productId?.quantity)*parseInt(el.productId?.price)
+
+
         totalcost += calculate
 
         // console.log("END")
@@ -37,9 +40,9 @@ add = async (req,res) => {
 }
 
 getallData = async (req,res) => {
-     let totalcount= await orders.find(req.body).countDocuments().exec()
+     let totalcount= await orderModel.find(req.body).countDocuments().exec()
 
-     orders.find(req.body)
+     orderModel.find(req.body)
      .then(orderData =>{
         res.json({
             status: 200,
@@ -76,7 +79,7 @@ updateData = (req,res) => {
     }
 
     else{
-        orders.findOne({_id: req.body._id})
+        orderModel.findOne({_id: req.body._id})
         .then(orderData => {
             if(!orderData)
             {
@@ -113,8 +116,67 @@ updateData = (req,res) => {
     }
 }
 
+//   deletedata
+softdeleteData = (req, res) => {
+    var validationerror = []
+    if (!req.body._id)
+        validationerror.push("Id is Required")
+
+    if (validationerror.length > 0) {
+        res.json({
+            status: 422,
+            success: false,
+            message: "Validation Error",
+            errors: validationerror
+        })
+    }
+    else {
+        //check record existance
+        orderModel.findOne({ _id: req.body._id })
+            .then(orderData => {
+                if (!orderData) {
+                    res.json({
+                        status: 404,
+                        success: false,
+                        message: "Record not Found"
+                    })
+                }
+                else {
+                    //soft delete
+                    orderData.status = req.body.status
+                    orderData.save()
+                        .then(() => {
+                            res.json({
+                                status: 200,
+                                success: true,
+                                message: "Record deleted",
+
+                            })
+                        })
+                        .catch(err => {
+                            res.json({
+                                status: 500,
+                                success: false,
+                                message: "Internal Server Error",
+                                error: err.message
+                            })
+                        })
+                }
+            })
+            .catch(err => {
+                res.json({
+                    status: 500,
+                    success: false,
+                    message: "Internal Server Error",
+                    error: err.message
+                })
+            })
+    }
+}
+
 module.exports = {
     add,
     getallData,
-    updateData
+    updateData,
+    softdeleteData
 }

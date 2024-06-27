@@ -436,10 +436,10 @@ export default function Home(){
       </h3>
       <div id="horizontalTab">
         <ul className="resp-tabs-list">
-          <li> Men's</li>
-          <li> Women's</li>
-          <li> Bags</li>
-          <li> Footwear</li>
+          <li> Makeup</li>
+          <li> Skin</li>
+          <li> Hair</li>
+          <li> Fragrance</li>
         </ul>
         <div className="resp-tabs-container">
           {/*/tab_one*/}
@@ -447,8 +447,8 @@ export default function Home(){
             <div className="col-md-3 product-men">
               <div className="men-pro-item simpleCart_shelfItem">
                 <div className="men-thumb-item">
-                  <img src="/assets/images/m1.jpg" alt="" className="pro-image-front" />
-                  <img src="/assets/images/m1.jpg" alt="" className="pro-image-back" />
+                  <img src="/assets/images/e1.jpeg" alt="" className="pro-image-front" />
+                  <img src="/assets/images/e1.jpeg" alt="" className="pro-image-back" />
                   <div className="men-cart-pro">
                     <div className="inner-men-cart-pro">
                       <a href="single.html" className="link-product-add-cart">
@@ -460,7 +460,7 @@ export default function Home(){
                 </div>
                 <div className="item-info-product ">
                   <h4>
-                    <a href="single.html">Formal Blue Shirt</a>
+                    <a href="single.html">Eye Linar</a>
                   </h4>
                   <div className="info-product-price">
                     <span className="item_price">$45.99</span>

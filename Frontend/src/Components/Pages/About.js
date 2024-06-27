@@ -212,29 +212,28 @@ export default function About(){
     <div className="container">
       <div className="agile_ab_w3ls_info">
         <div className="col-md-6 ab_pic_w3ls">
-          <img src="/assets/images/ab_pic.jpg" alt=" " className="img-responsive" />
+          <img src="/assets/images/about1.png" alt=" " className="img-responsive"/>
         </div>
         <div className="col-md-6 ab_pic_w3ls_text_info">
           <h5>
-            About Our Elite <span> Shoppy</span>{" "}
+            About Our cosmo <span> Collection</span>{" "}
           </h5>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque
-            vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor.
-            Mauris volutpat augue dolor..
+          Cosmetics are composed of mixtures of chemical compounds derived
+           from either natural sources or synthetically created ones.
+            Cosmetics have various purposes, including personal care and skin care.
+             These can be used to cleanse or protect the body and skin.
+             as well as replenish it, through the use of body lotions,
+            cleansers, toners, serums,
           </p>
-          <p>
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco. labore et dolore magna aliqua.
-          </p>
+         
         </div>
         <div className="clearfix" />
       </div>
       <div className="banner_bottom_agile_info_inner_w3ls">
         <div className="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
           <figure className="effect-roxy">
-            <img src="/assets/images/bottom1.jpg" alt=" " className="img-responsive" />
+            <img src="/assets/images/about2.jpg" alt=" " className="img-responsive" />
             <figcaption>
               <h3>
                 <span>F</span>all Ahead
@@ -245,7 +244,7 @@ export default function About(){
         </div>
         <div className="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
           <figure className="effect-roxy">
-            <img src="/assets/images/bottom2.jpg" alt=" " className="img-responsive" />
+            <img src="/assets/images/about3.jpg" alt=" " className="img-responsive" />
             <figcaption>
               <h3>
                 <span>F</span>all Ahead
@@ -485,7 +484,7 @@ export default function About(){
   {/* schedule-bottom */}
   <div className="schedule-bottom">
     <div className="col-md-6 agileinfo_schedule_bottom_left">
-      <img src="/assets/images/mid.jpg" alt=" " className="img-responsive" />
+      <img src="/assets/images/mid1.jpg" alt=" " className="img-responsive" />
     </div>
     <div className="col-md-6 agileits_schedule_bottom_right">
       <div className="w3ls_schedule_bottom_right_grid">

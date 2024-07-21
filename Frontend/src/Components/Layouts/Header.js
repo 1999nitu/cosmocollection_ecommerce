@@ -508,10 +508,10 @@ export default function Header(){
                       <div className="col-sm-4 multi-gd-img">
                         <ul className="multi-column-dropdown">
                           <li>
-                            <Link to="/Admin/addcategory" >Add</Link>
+                            <Link to="/Admin/addcategory.js">Add</Link>
                           </li>
                           <li>
-                            <Link to="/Admin/managecategory" >Manage</Link>
+                            <Link to="/Admin/managecategory.js">Manage</Link>
                           </li>
                         </ul>
                       </div>
@@ -562,10 +562,10 @@ export default function Header(){
                       <div className="col-sm multi-gd-img">
                         <ul className="multi-column-dropdown">
                           <li>
-                            <Link to="/Admin/addproduct">Add</Link>
+                            <Link to="/Admin/Product/addproduct.js">Add</Link>
                           </li>
                           <li>
-                            <Link to="/Admin/manageproduct">Manage</Link>
+                            <Link to="/Admin/Product/manageproduct.js">Manage</Link>
                           </li>
                         </ul>
                       </div>

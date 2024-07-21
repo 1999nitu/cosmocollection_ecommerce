@@ -187,7 +187,7 @@ class ApiServices{
 
     }
 
-    orderstatus(data){
+    updateorder(data){
         let obj={
             Authorization:localStorage.getItem("token")
         }
@@ -199,6 +199,13 @@ class ApiServices{
             Authorization:localStorage.getItem("token")
         }
         return axios.post(BASE_URL+"apis/orders/delete",data,{headers:obj})
+    }
+
+    singleorder(data){
+        let obj={
+            Authorization:localStorage.getItem("token")
+        }
+        return axios.post(BASE_URL+"apis/orders/single",data,{headers:obj})
     }
 
 }   

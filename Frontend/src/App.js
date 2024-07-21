@@ -47,7 +47,9 @@ import UserViewCategory from './Components/User/UserViewCategory';
 import SkinCare from './Components/User/SkinCare';
 import UserLogin from './Components/User/UserLogin';
 import AllCart from './Components/User/AllCart';
-import ViewOrder from './Components/Admin/ViewOrder';
+import ViewOrder from './Components/Admin/Orders/ViewOrder';
+import UpdateOrder from './Components/Admin/Orders/UpdateOrder';
+import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
 
 
@@ -76,7 +78,6 @@ function App() {
         {/* <Route path='/contact1' element={<Contact1/>}/> */}
 
 
-        <Route path='/vieworder' element={<ViewOrder/>}/>
 
 
         <Route path='/addcategory' element={<AddCategory/>}/>
@@ -98,6 +99,10 @@ function App() {
         <Route path='/singlecoupon/:id' element={<ViewSingleCoupon/>}/>
         <Route path='/managecoupon' element={<ManageCoupon/>}/>
         <Route path='/editcoupon/:id' element={<EditCoupon/>} />
+
+        <Route path='/vieworder' element={<ViewOrder/>}/>
+        <Route path='/updateorder' element={<UpdateOrder/>}/>
+        <Route path='/vieworderdetails' element={<ViewOrderDetails/>} />
 
         <Route path='/userviewsubcategory/:id' element={<UserViewSubCategory/>}/>
         <Route path='/userviewproduct/:id' element={<UserViewProduct/>}/>

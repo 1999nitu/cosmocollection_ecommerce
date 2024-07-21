@@ -15,7 +15,7 @@ const OrderSchema = new mongoose.Schema({
             quantity : {type:Number,default : 1}
         }
     ],
-    orderStatus: { type: Number, default: 1}, //pending=1, approved=2, shipped=3, delivered=4, decline=5
+    orderStatus: { type: Number, default: 1},// 1-> Placed , 2-> Confirmed , 3=> Shipped , 4=>Delivered , 5=> Cancelled
     status: {type: Boolean, default: true},
     createdAt: {type: Date, default: Date.now()},
 })

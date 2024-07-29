@@ -7,11 +7,11 @@ import Header from "../Layouts/Header";
 import Footer from "../Layouts/Footer";
 import AdminHeader from "./AdminHeader";
 export default function AdminLayout(){
-    const authenticate=sessionStorage.getItem("authenticate")
+    const token=sessionStorage.getItem("token")
     const userType=sessionStorage.getItem("userType")
     const nav=useNavigate()
     useEffect(()=>{
-        if(!authenticate){
+        if(!token){
             nav("/login",{state:{message:"Please Login to access the page"}})
         }
         if(userType!=1|| userType!="1"){

@@ -208,8 +208,8 @@ export default function AdminHeader(){
                   </ul>
                 </li>
                 <li className="dropdown menu__item">
-                  <Link
-                    to="/userviewproduct"
+                  <a
+                    to=""
                     className="dropdown-toggle menu__link"
                     data-toggle="dropdown"
                     role="button"
@@ -217,7 +217,7 @@ export default function AdminHeader(){
                     aria-expanded="false"
                   >
                   Products <span className="caret" />
-                  </Link>
+                  </a>
                   <ul className="dropdown-menu multi-column columns-3">
                     <div className="agile_inner_drop_nav_info">
                       <div className="col-sm multi-gd-img">

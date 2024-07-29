@@ -147,7 +147,7 @@ export default function Login(){
                 sessionStorage.setItem("Authorization",true)
                 if(res.data.data.userType==1|| res.data.data.userType=="1"){
                     console.log("login")
-                    nav("/adminlayout")
+                    nav("/admin")
                 }
                 else{
                     nav("/home")

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ApiServices from "../ApiServices";
-export default function Header(){
+export default function AdminHeader(){
     const [category,setCategory]=useState()
     const userType=sessionStorage.getItem('userType')
     const authenticate=sessionStorage.getItem('authenticate')
@@ -146,74 +146,106 @@ export default function Header(){
               id="bs-example-navbar-collapse-1"
             >
               <ul className="nav navbar-nav menu__list">
-          
-                {!authenticate || userType==2?
-                  <>
-                  <li className="active menu__item">
-                  <Link className="menu__link" to={"/Home"}>
+                {/* {authenticate && userType==1  ? */}
+                  {/* <> */}
+                <li className="active menu__item">
+                  <Link className="menu__link" to={"/admin"}>
                     Home 
                   </Link>
                 </li>
-                  <li className="dropdown menu__item">
-                    <a
-                      href="#"
-                      className="dropdown-toggle menu__link"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                    Category <span className="caret" />
-                    </a>
-                    <ul className="dropdown-menu multi-column columns-3">
-                      <div className="agile_inner_drop_nav_info">
-                        <div className="col-sm multi-gd-img">
-                          <ul className="multi-column-dropdown">
-                            <li>
-                              <Link to={"/userviewcategory"}>All</Link>
-                            </li>
-                            {category?.slice(0,5).map((el,index)=>(
-                            <li>
-                              <Link to={`/userviewsubcategory/${el?._id}`}>{el.subcategoryName}</Link>
-                            </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="clearfix" />
+                <li className="dropdown menu__item">
+                  <a
+                    href="#"
+                    className="dropdown-toggle menu__link"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Category <span className="caret" />
+                  </a>
+                  <ul className="dropdown-menu multi-column columns-3">
+                    <div className="agile_inner_drop_nav_info">
+                      <div className="col-sm-4 multi-gd-img">
+                        <ul className="multi-column-dropdown">
+                          <li>
+                            <Link to="/admin/addcategory">Add</Link>
+                          </li>
+                          <li>
+                            <Link to="/admin/managecategory">Manage</Link>
+                          </li>
+                        </ul>
                       </div>
-                    </ul>
-                  </li>
-                  <li className=" menu__item">
-                    <Link to="/userviewproduct" className="menu__link">
-                      Products
-                    </Link>
-                  </li>
-                  <li className=" menu__item">
-                    <Link to="/admin/vieworderdetails" className="menu__link">
-                      Orders
-                    </Link>
-                  </li>
-                  </>:""}
-                  {!authenticate?
-                  <>
-                    <li className=" menu__item">
-                      <Link to="/login" className="menu__link" >
-                        Login
-                      </Link>
-                    </li>
-                    <li className=" menu__item">
-                      <Link to="/register" className="menu__link" >
-                        Register
-                      </Link>
-                    </li>
-                    </>
-                    :
-                    <li className=" menu__item">
-                      <Link  className="menu__link" onClick={logout}>
-                        Logout
-                      </Link>
-                    </li>
-                  }
+                      <div className="clearfix" />
+                    </div>
+                  </ul>
+                </li>
+                <li className="dropdown menu__item">
+                  <a
+                    href="#"
+                    className="dropdown-toggle menu__link"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Sub-Category <span className="caret" />
+                  </a>
+                  <ul className="dropdown-menu multi-column columns-3">
+                    <div className="agile_inner_drop_nav_info">
+                      <div className="col-sm-3 multi-gd-img">
+                        <ul className="multi-column-dropdown">
+                          <li>
+                            <Link to="/admin/addsubcategory" >Add</Link>
+                          </li>
+                          <li>
+                            <Link to="/admin/managesubcategory" >Manage</Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="clearfix" />
+                    </div>
+                  </ul>
+                </li>
+                <li className="dropdown menu__item">
+                  <Link
+                    to="/userviewproduct"
+                    className="dropdown-toggle menu__link"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Products <span className="caret" />
+                  </Link>
+                  <ul className="dropdown-menu multi-column columns-3">
+                    <div className="agile_inner_drop_nav_info">
+                      <div className="col-sm multi-gd-img">
+                        <ul className="multi-column-dropdown">
+                          <li>
+                            <Link to="/admin/addproduct">Add</Link>
+                          </li>
+                          <li>
+                            <Link to="/admin/manageproduct">Manage</Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="clearfix" />
+                    </div>
+                  </ul>
+                </li>
+                <li className=" menu__item">
+                  <Link to="/admin/vieworder" className="menu__link">
+                    Orders
+                  </Link>
+                </li>
+                <li className=" menu__item">
+                  <Link className="menu__link" to={"/admin/user"}>
+                    User
+                  </Link>
+                </li>
+              
+             
               </ul>
             </div>
           </div>

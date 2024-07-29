@@ -139,17 +139,18 @@ export default function Login(){
             if(res.data.success){
                 toast.success(res.data.message)
                 // console.warn(data.data.token)
-                sessionStorage.setItem("userId", res.data._id)
-                sessionStorage.setItem("name",res.data.name)
-                sessionStorage.setItem("email", res.data.email)
+                sessionStorage.setItem("userId", res.data.data._id)
+                sessionStorage.setItem("name",res.data.data.name)
+                sessionStorage.setItem("email", res.data.data.email)
                 sessionStorage.setItem("token", res.data.token)
-                sessionStorage.setItem("userType", res.data.userType)
+                sessionStorage.setItem("userType", res.data.data.userType)
                 sessionStorage.setItem("Authorization",true)
-                if(res.data.userType==1|| res.data.userType=="1"){
-                    nav("/admin")
+                if(res.data.data.userType==1|| res.data.data.userType=="1"){
+                    console.log("login")
+                    nav("/adminlayout")
                 }
                 else{
-                    nav("/")
+                    nav("/home")
                 }
             }
             else{
@@ -174,7 +175,7 @@ export default function Login(){
                     <div className="agile_inner_breadcrumb">
                         <ul className="w3_short">
                         <li>
-                            <Link to={"/"}>Home</Link>
+                            <Link to={"/home"}>Home</Link>
                             <i>|</i>
                         </li>
                         <li>Login</li>

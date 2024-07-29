@@ -29,7 +29,7 @@ export default function UserLogin(){
         if(email=="user@gmail.com" && password=="user")
         {
             // console.log("Valid")
-            nav("/")
+            nav("/home")
         }
         else{
             console.log("invalid")

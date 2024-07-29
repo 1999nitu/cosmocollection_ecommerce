@@ -208,6 +208,25 @@ class ApiServices{
         return axios.post(BASE_URL+"apis/orders/single",data,{headers:obj})
     }
 
+    getDashboard(data){
+        const token=sessionStorage.getItem("token")
+        let header={
+            "Accept":"*/*",
+            "Authorization":token
+        }
+        console.log(token)
+        return axios.get(BASE_URL+"dashboard",{headers:header})
+    }
+
+    getall(data){
+        const token=sessionStorage.getItem("token")
+        let header={
+            "Accept":"*/*",
+            "Authorization":token
+        }
+        return axios.post(BASE_URL+"user/getall",data,{headers:header})
+    }
+
 }   
 
 export default new ApiServices

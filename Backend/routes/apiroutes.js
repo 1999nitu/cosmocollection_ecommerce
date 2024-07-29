@@ -76,6 +76,7 @@ router.post("/product/getsingledata", productController.getsingledata)
 router.use(require("../config/middleware"))
 
 router.post("/user/dashboard",userController.dashboard)
+router.post("/user/getall",userController.getall)
 router.post("/user/changepassword",userController.changepassword)
 router.post("/user/updateprofile",userController.updateuser)
 
@@ -90,6 +91,9 @@ router.post("/subcategory/update",subcategoryupload.single('subcategoryImage'), 
 router.post("/product/add", productupload.single('productImage'), productController.add)
 router.post("/product/softdelete", productController.softdeleteData)
 router.post("/product/update",productupload.single('productImage'), productController.updatedata)
+
+// router.get('/dashboard', dashboardController.dashboard)
+
 
 router.post("/coupon/add", couponController.add)
 router.post("/coupon/getall", couponController.getalldata)

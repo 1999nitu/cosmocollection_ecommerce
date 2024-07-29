@@ -163,6 +163,16 @@ login = (req, res) => {
     }
 }
 
+
+getall = async (req, res) => {
+    req.body.userType = 2
+    await User.find(req.body).then(res => {
+        res.send({ success: true, status: 200, message: "All Users loaded", data: result })
+    }).catch(err => {
+        res.send({ success: false, status: 500, message: !!err.message ? err.message : err })
+    })
+}
+
 dashboard = async(req,res) => {
     totalcategory = await category.find({status:true}).countDocuments().exec()
     totalsubcategory = await subcategory.find({status:true}).countDocuments().exec()
@@ -332,6 +342,7 @@ updateuser = (req,res)=>{
 module.exports = {
     register,
     login,
+    getall,
     dashboard,
     changepassword,
     updateuser

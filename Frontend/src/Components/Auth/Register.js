@@ -183,7 +183,7 @@ export default function Register(){
                             nav("/admin")
                         }
                         else{
-                            nav("/")
+                            nav("/home")
                         }
                     }
                     else{
@@ -222,7 +222,7 @@ export default function Register(){
                    <div className="agile_inner_breadcrumb">
                        <ul className="w3_short">
                        <li>
-                           <Link to={"/"}>Home</Link>
+                           <Link to={"/Home"}>Home</Link>
                            <i>|</i>
                        </li>
                        <li>Register</li>

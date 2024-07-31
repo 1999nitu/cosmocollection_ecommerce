@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ApiServices, { BASE_URL } from "../ApiServices"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 
 export default function AllCart(){
@@ -10,8 +10,8 @@ export default function AllCart(){
     const [cart,setCart]=useState([])
     const [name,setName]=useState([])
     const [address,setAddress]=useState([])
-
-
+    const nav=useNavigate()
+    //next create a component userorder with a rout and show user order data in that in the form of table and also admin k page par data show kro
     useEffect(
         ()=>{
         // console.log("btn")
@@ -20,8 +20,10 @@ export default function AllCart(){
     )
 
 const getData=()=>{
-
-    ApiServices.allcart()
+    let data={
+        userId:sessionStorage.getItem("user_id")
+    }
+    ApiServices.allcart(data)
     .then((res)=>{
         setCart(res.data.data)
         console.log("data",res)
@@ -84,6 +86,7 @@ const getData=()=>{
             .then((res)=>{
               if(res.data.success==true){
                 toast.success(res.data.message)
+                nav("/userorder")
               }
               else{
                 toast.error(res.data.message)
@@ -118,8 +121,8 @@ const getData=()=>{
                  <tbody>
                      {cart?.map(
                          (el,index)=>{
-                            // total+=parseInt(el.productId?.quantity)*parseInt(el.productId?.price)
-                            (
+                            total+=parseInt(el.productId?.quantity)*parseInt(el.productId?.price)
+                            return(
                              <tr>
                                  <td>{index+1}</td>
                                  <td>{el.productId?.productName}<br/>
@@ -148,6 +151,8 @@ const getData=()=>{
                      )}
                  </tbody>
              </table>
+             <h5>Total is {total}</h5>
+             {total>0 ?
              <form onSubmit={handleForm}>
                 <label>Name</label>
                 <input type="text" name="Name" required="" value={name} onChange={(e)=>{setName(e.target.value)}} />
@@ -162,6 +167,7 @@ const getData=()=>{
                 <button>Place Order</button>
 
              </form>
+                : "Cart is empty"}
              </div>
         </>
     )

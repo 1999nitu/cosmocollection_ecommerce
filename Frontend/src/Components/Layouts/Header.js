@@ -6,7 +6,7 @@ import ApiServices from "../ApiServices";
 export default function Header(){
     const [category,setCategory]=useState()
     const userType=sessionStorage.getItem('userType')
-    const authenticate=sessionStorage.getItem('authenticate')
+    const token=sessionStorage.getItem('token')
     const nav=useNavigate()
     useEffect(()=>{
         ApiServices.allcategory().then((res)=>{
@@ -147,7 +147,7 @@ export default function Header(){
             >
               <ul className="nav navbar-nav menu__list">
           
-                {!authenticate || userType==2?
+                {!!token || userType==2?
                   <>
                   <li className="active menu__item">
                   <Link className="menu__link" to={"/Home"}>
@@ -193,8 +193,12 @@ export default function Header(){
                       Orders
                     </Link>
                   </li>
-                  </>:""}
-                  {!authenticate?
+                  <li className=" menu__item">
+                      <Link  className="menu__link" onClick={logout}>
+                        Logout
+                      </Link>
+                    </li>
+                  </>:
                   <>
                     <li className=" menu__item">
                       <Link to="/login" className="menu__link" >
@@ -207,12 +211,8 @@ export default function Header(){
                       </Link>
                     </li>
                     </>
-                    :
-                    <li className=" menu__item">
-                      <Link  className="menu__link" onClick={logout}>
-                        Logout
-                      </Link>
-                    </li>
+                    
+                   
                   }
               </ul>
             </div>
@@ -220,7 +220,7 @@ export default function Header(){
         </nav>
       </div>
       <div className="top_nav_right">
-      {authenticate && userType!=1  &&
+    {!!token  &&
         <div className="wthreecartaits wthreecartaits2 cart cart box_1">
           <form action="#" method="post" className="last">
             <input type="hidden" name="cmd" defaultValue="_cart" />

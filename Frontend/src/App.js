@@ -51,6 +51,7 @@ import UpdateOrder from './Components/Admin/Orders/UpdateOrder';
 import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
 import AdminLayout from './Components/Admin/AdminLayout';
+import UserOrder from './Components/User/UserOrder';
 
 
 
@@ -80,6 +81,7 @@ function App() {
         <Route path='/userlogin' element={<UserLogin/>}/>
         <Route path='/userviewcategory' element={<UserViewCategory/>}/>
         <Route path='/allcart' element={<AllCart/>} />
+        <Route path='/userorder' element={<UserOrder/>} />
 
         </Route>
       

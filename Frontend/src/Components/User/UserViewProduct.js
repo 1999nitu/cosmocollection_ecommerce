@@ -49,7 +49,7 @@ useEffect(
           categoryId:categoryId,
           subcategoryId:subcategoryId,
           productId:productId,
-          userId:sessionStorage.getItem("userId"),
+          userId:sessionStorage.getItem("user_id"),
           quantity:1
         }
         console.log(data)
@@ -123,12 +123,13 @@ useEffect(
                    <div className="info-product-price">
                      <span className="item_price">$120.99</span>
                      <del>$189.71</del>
+                     
                    </div>
                  
                          
                          <button className="btn btn-info" onClick={
                           ()=>{
-                            cart(el.categoryId._id, el.subcategoryId._id, el._id)
+                            cart(el?.categoryId?._id, el?.subcategoryId?._id, el?._id)
                           }
                          }>
                           Add to Cart

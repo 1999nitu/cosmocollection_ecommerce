@@ -10,25 +10,17 @@ add = async (req,res) => {
     let orderObj = new orderModel()
     orderObj.name = req.body.name
     console.log(req.body.name)
+    orderObj.productImage = "product/" + req.file.filename
     orderObj.address = req.body.address
     orderObj.totalPrice = req.body.totalPrice
+    orderObj.userId=req.body.userId
+    orderObj.orderDetails=req.body.orderDetails
 
-    for(odr of req.body.orderDetails)
-    {
-        // console.log("START")
-        console.log(odr)
-
-        orderObj.orderDetails.push(odr)
-        calculate = parseInt(odr.quantity)* parseFloat(odr.Price)
-                            // total+=parseInt(el.productId?.quantity)*parseInt(el.productId?.price)
-
-
-        totalcost += calculate
-
-        // console.log("END")
-
-    }
-    orderObj.totalPrice = totalcost
+    // for(odr of req.body.orderDetails)
+    // {
+    //     orderObj.orderDetails.push(odr)
+    // }
+    orderObj.totalPrice = req.body.totalPrice
 
     orderObj.save()
 
@@ -93,6 +85,10 @@ updateData = (req,res) => {
                 //update
                 if(req.body.orderStatus)
                 orderData.orderStatus = req.body.orderStatus
+
+                if (req.file.filename){
+                    orderData.productImage =  "product/" + req.file.filename
+                }
 
                 orderData.save()
                 .then(saveRes => {

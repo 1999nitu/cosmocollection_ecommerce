@@ -235,15 +235,15 @@ export default function AdminHeader(){
                   </ul>
                 </li>
                 <li className=" menu__item">
-                  <Link to="/admin/vieworder" className="menu__link">
+                  <Link to="/userorder" className="menu__link">
                     Orders
                   </Link>
                 </li>
-                <li className=" menu__item">
+                {/* <li className=" menu__item">
                   <Link className="menu__link" to={"/admin/user"}>
                     User
                   </Link>
-                </li>
+                </li> */}
               
              
               </ul>

@@ -155,11 +155,11 @@ class ApiServices{
         return axios.post(BASE_URL+"apis/cart/add",data,{headers:obj})
     }
 
-    allcart(){
+    allcart(data){
         let obj={
             Authorization:localStorage.getItem("token")
         }
-        return axios.post(BASE_URL+"apis/cart/getall",{},{headers:obj})
+        return axios.post(BASE_URL+"apis/cart/getall",data,{headers:obj})
 
     }
 

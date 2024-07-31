@@ -24,7 +24,7 @@ add = (req, res) => {
     }
     else {
 
-       Cart.findOne({$and:[{productId:req.body.productId},{userId:req['decoded']._id}]})
+       Cart.findOne({$and:[{productId:req.body.productId},{userId:req.body.userId}]})
        .then(cartData=>{
 
             if(cartData == null)
@@ -33,23 +33,43 @@ add = (req, res) => {
                 cartObj.categoryId = req.body.categoryId
                 cartObj.subcategoryId = req.body.subcategoryId
                 cartObj.productId = req.body.productId
-                cartObj.userId = req['decoded']._id
+                cartObj.userId = req.body.userId
                 cartObj.quantity = 1
                 cartObj.save()
-
-                res.json({
-                    status: 200,
-                    success:true,
-                    message : "Item added to cart"
+                .then(data=>{
+                    res.json({
+                      status: 200,
+                      success: true,
+                      message: "item added to cart",
+                      data: data
+                    })
+                }).catch(err=>{
+                  res.json({
+                    status:500,
+                    success:false,
+                    message : "Internal server error",
+                    error: String(err),
+                  })
                 })
             }
-            else{
-                cartData.quantity = parseInt(cartData.quantity)+1
-                cartData.save()
+
+                else{
                 res.json({
                     status: 200,
                     success:true,
-                    message : "Item added to cart"
+                    message : "Item added to cart",
+                    data: cartObj
+                })
+            }
+            }
+            else{
+                cartData.quantity += req.body.quantity
+                cartData.save()
+               
+                res.json({
+                    status: 200,
+                    success:true,
+                    message : "Cart updated"
                 })
             }
 
@@ -71,7 +91,7 @@ add = (req, res) => {
 getalldata = async (req, res) => {
     let totalcount = await Cart.countDocuments().exec()
 
-    Cart.find()
+    Cart.find(req.body)
         .populate("userId")
         .populate("categoryId")
         .populate("subcategoryId")

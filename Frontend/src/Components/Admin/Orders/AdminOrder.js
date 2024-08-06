@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link,useParams,useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { toast } from "react-toastify";
-import ApiServices, { BASE_URL } from "../ApiServices";
+import ApiServices, { BASE_URL } from "../../ApiServices";
 
 
 export default function UserOrder(){
@@ -14,24 +14,25 @@ export default function UserOrder(){
         "zIndex":"1",
     }
     const [orders,setOrders]=useState()
-    const {id}=useParams()
     useEffect(()=>{
-        let data={
-            userId:sessionStorage.getItem("user_id")
-        }
-        ApiServices.vieworder(data).then((res)=>{
-            setOrders(res.data.data)
-            setTimeout(()=>{
-                setLoading(false)
-            },1000)
-        }).catch((err)=>{
-            console.log(err)
-            toast.error("Something went wrong!!")
-             setTimeout(()=>{
-                setLoading(false)
-            },1000)
-        })
+      getOrder()
     },[loading])
+    const getOrder=()=>{
+      let data={
+      }
+      ApiServices.vieworder(data).then((res)=>{
+          setOrders(res.data.data)
+          setTimeout(()=>{
+              setLoading(false)
+          },1000)
+      }).catch((err)=>{
+          console.log(err)
+          toast.error("Something went wrong!!")
+           setTimeout(()=>{
+              setLoading(false)
+          },1000)
+      })
+  }
     const token=sessionStorage.getItem("token")
     const nav=useNavigate()
     useEffect(()=>{
@@ -40,6 +41,22 @@ export default function UserOrder(){
             nav("/login")
         }
     },[])
+    const updateStatus=(id,status)=>{
+      let data={
+        _id:id,
+        orderStatus:status
+
+      }
+      ApiServices.updateorder(data).then((res)=>{
+        toast.success("Data updated")
+          getOrder()
+      })
+      .catch((err)=>{
+        console.log(err)
+        toast.error("Something went wrong!!")
+      })
+      //yha update order ki api lga lena
+    }
     return(
         <>
         <div className="page-head_agile_info_w3l">
@@ -75,6 +92,7 @@ export default function UserOrder(){
                         <th>Order Details</th>
                         <th>Address </th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -93,7 +111,21 @@ export default function UserOrder(){
                                 </ul>
                             </td>
                             <td>{el?.address}</td>
-                            <td>{el?.orderStatus==1?"Placed":el?.orderStatus==2?"Confirmed":el?.status==3?"Shipped":el?.status==4?"Delivered":el?.orderStatus=="5"?"Cancelled":""}</td>
+                            <td>{el?.orderStatus==1?"Placed":el?.orderStatus==2?"Confirmed":el?.orderStatus==3?"Shipped":el?.orderStatus==4?"Delivered":el?.orderStatus==5?"Cancelled":""}</td>
+                            <td>
+                            {el?.orderStatus ==1 && 
+                                <div>
+                                  <button onClick={() => updateStatus(el?._id, 2)}>Approve</button>
+                                  <button onClick={() => updateStatus(el?._id, 5)}>Decline</button>
+                                </div>
+                              }
+                              {el?.orderStatus == 2 && (
+                                <button onClick={() => updateStatus(el?._id, 3)}>Ship</button>
+                              )}
+                              {el?.orderStatus == 3 && (
+                                <button onClick={() => updateStatus(el?._id, 4)}>Deliver</button>
+                              )}
+                            </td>
                         </tr>
                     ))}
                     </tbody>

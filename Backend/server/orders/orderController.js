@@ -34,7 +34,7 @@ add = async (req,res) => {
 getallData = async (req,res) => {
      let totalcount= await orderModel.find(req.body).countDocuments().exec()
 
-     orderModel.find(req.body)
+     orderModel.find(req.body).populate("orderDetails.productId")
      .then(orderData =>{
         res.json({
             status: 200,
@@ -86,9 +86,7 @@ updateData = (req,res) => {
                 if(req.body.orderStatus)
                 orderData.orderStatus = req.body.orderStatus
 
-                if (req.file.filename){
-                    orderData.productImage =  "product/" + req.file.filename
-                }
+              
 
                 orderData.save()
                 .then(saveRes => {

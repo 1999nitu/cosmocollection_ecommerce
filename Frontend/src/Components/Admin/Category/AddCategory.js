@@ -81,53 +81,6 @@ export default function AddCategory(){
     }
     return(
         <>
-      {/* <div className="col-md-6 contact-form">
-            <h4 className="white-w3ls">
-              Add <span>Category</span>
-            </h4>
-        <form action="#" method="post" onSubmit={handleForm}>
-              <div className="styled-input agile-styled-input-top">
-                
-              </div>
-
-            <div className="styled-input">
-                <input type="text" name="Name" required="" value={name} onChange={(e)=>{setName(e.target.value)}} />
-                <label>Category Name</label>
-                <span />
-            </div>
-
-            <div className="styled-input">
-                <input type="file" name="image" required="" value={imageName} onChange={changeImage} />
-                <label>Category Image</label>
-                <span />
-            </div>
-
-            <div className="styled-input ">
-               
-            </div>
-              <input type="submit" defaultValue="SEND" />
-        </form>
-</div>
-       
-        <div className="clearfix"> </div>
-
-            <ToastContainer
-             position="bottom-left"
-             autoClose={5000}
-             hideProgressBar={false}
-             newestOnTop={false}
-             closeOnClick
-             rtl={false}
-             pauseOnFocusLoss
-             draggable
-             pauseOnHover
-             theme="dark"
-            />
-         */}
-
-
-
-
 <div className="page-head_agile_info_w3l">
                 <div className="container">
                     <h3>
@@ -151,7 +104,7 @@ export default function AddCategory(){
                 <ClipLoader loading={loading} cssOverride={override} size={120}/>
             </div>     
             <div className={loading?"disabled-screen":""}>
-                <div className="container-fluid my-5">
+                <div className="container-fluid my-5"style={{marginTop:"3rem",marginBottom:"3rem"}}>
                     <div className="row">
                         <div className="col-md-2"></div>
                     <div className="col-md-8 border border-3 border-danger py-5 rounded">

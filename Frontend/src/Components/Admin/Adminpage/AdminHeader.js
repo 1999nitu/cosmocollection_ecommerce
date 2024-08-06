@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import ApiServices from "../ApiServices";
+import ApiServices from "../../ApiServices";
 export default function AdminHeader(){
     const [category,setCategory]=useState()
     const userType=sessionStorage.getItem('userType')
@@ -235,7 +235,7 @@ export default function AdminHeader(){
                   </ul>
                 </li>
                 <li className=" menu__item">
-                  <Link to="/userorder" className="menu__link">
+                  <Link to="/admin/adminorder" className="menu__link">
                     Orders
                   </Link>
                 </li>

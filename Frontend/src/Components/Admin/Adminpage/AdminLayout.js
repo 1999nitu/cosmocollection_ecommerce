@@ -3,8 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
+import Footer from "../../Layouts/Footer";
 import AdminHeader from "./AdminHeader";
 export default function AdminLayout(){
     const token=sessionStorage.getItem("token")
@@ -24,7 +23,7 @@ export default function AdminLayout(){
    
    return(
     <>
-       <AdminHeader/>
+    <AdminHeader/>
         <Outlet/>
         <Footer/>
         <ToastContainer

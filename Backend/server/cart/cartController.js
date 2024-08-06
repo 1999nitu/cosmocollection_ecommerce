@@ -29,13 +29,14 @@ add = (req, res) => {
 
             if(cartData == null)
             {
+                if (req.body.quantity != 0) {
                 let cartObj = new Cart()
                 cartObj.categoryId = req.body.categoryId
                 cartObj.subcategoryId = req.body.subcategoryId
                 cartObj.productId = req.body.productId
                 cartObj.userId = req.body.userId
                 cartObj.quantity = 1
-                cartObj.save()
+                cartObj.save() //niche bhi krna tha add
                 .then(data=>{
                     res.json({
                       status: 200,
@@ -60,17 +61,28 @@ add = (req, res) => {
                     message : "Item added to cart",
                     data: cartObj
                 })
-            }
-            }
+            }}
+            
             else{
                 cartData.quantity += req.body.quantity
                 cartData.save()
-               
-                res.json({
-                    status: 200,
-                    success:true,
-                    message : "Cart updated"
+                .then((res)=>{
+                    res.json({
+                        status:200,
+                        success:true,
+                        message:"Cart updated"
+                    })
+                    .catch((err)=>{
+                        res.json({
+                            status:500,
+                            success:false,
+                            message : "Internal server error",
+                            error: String(err),
+                          })
+                    })
                 })
+
+              
             }
 
        })

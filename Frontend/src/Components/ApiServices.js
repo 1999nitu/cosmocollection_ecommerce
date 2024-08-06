@@ -183,7 +183,7 @@ class ApiServices{
         let obj={
             Authorization:localStorage.getItem("token")
         }
-        return axios.post(BASE_URL+"apis/orders/getall",{},{headers:obj})
+        return axios.post(BASE_URL+"apis/orders/getall",data,{headers:obj})
 
     }
 
@@ -227,6 +227,21 @@ class ApiServices{
         return axios.post(BASE_URL+"user/getall",data,{headers:header})
     }
 
+    getorder(data){
+        const token=sessionStorage.getItem("token")
+        let header={
+            Authorization:token
+        }
+        return axios.post(BASE_URL+"apis/orders/getall",data,{headers:header})
+    }
+
+    updateorder(data){
+        const token=sessionStorage.getItem("token")
+        let header={
+            Authorization:token
+        }
+        return axios.post(BASE_URL+"apis/orders/update",data,{headers:header})
+    }
 }   
 
 export default new ApiServices

@@ -3,20 +3,22 @@ import ApiServices from "../../ApiServices"
 import axios from "axios"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigate, useNavigate } from "react-router-dom";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 export default function AddProduct(){
+    const [loading,setLoading]=useState(false)
+    const override={
+        "display":"block",
+        margin:"0 auto",
+        "zIndex":"1",
+    }
     const [allCategory,setAllCategory]=useState([])
     const [categoryId,setCategoryId]=useState("")
     const [subCategoryId,setSubCategoryId]=useState("")
     const [data,setData]=useState("")
     const [allSubCategory,setAllSubCategory]=useState([])
-
   const nav=useNavigate()
-
-
-
 useEffect(()=>{
     getCategory()
 },[])
@@ -32,8 +34,6 @@ const getCategory=()=>{
         console.log(err)
     })
 }
-
-
 useEffect(()=>{
     getSubCategory()
 },[categoryId])
@@ -86,7 +86,6 @@ const getSubCategory=()=>{
             //     Authorization:token
             // }}
             e.preventDefault()
-    
             // store form data
             let data=new FormData()
             data.append("productName",name)
@@ -138,59 +137,116 @@ const getSubCategory=()=>{
 
     return(
         <>
-                 <form onSubmit={handleForm}>
+               <div className="page-head_agile_info_w3l">
+                <div className="container">
+                    <h3>
+                    Add <span>Product </span>
+                    </h3>
+                    <div className="services-breadcrumb">
+                    <div className="agile_inner_breadcrumb">
+                        <ul className="w3_short">
+                        <li>
+                            <Link to={"/admin"}>Home</Link>
+                            <i>|</i>
+                        </li>
+                        <li>Product</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center my-5">
+                <ClipLoader loading={loading} cssOverride={override} size={120}/>
+            </div>     
+                 <div className={loading?"disabled-screen":""}>
+            <div className="container-fluid my-5"style={{marginTop:"3rem",marginBottom:"3rem"}}>
+                    
+                <div className="row">
+                <div className="col-md-2"></div>
+                <div className="col-md-8 border border-3 border-danger py-5 rounded">
+                        <form onSubmit={handleForm}>
+                        <div className="row my-3">
+                                <div className="col-md-2">
+                                    <label>Product Name</label>
+                                </div>
+                                <div className="col-md-10">
+                                   <input type="text" className="form-control" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+                                </div>
+                            </div>
+                            <div className='row my-3'>
+                                <div className="col-md-2">
+                                    <label>Category</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <select required className="form-control" onChange={(e)=>{setCategoryId(e.target.value)}} value={categoryId}>
+                                        <option selected disabled value="">Choose Category</option>
+                                        {
+                                            allCategory?.map((el,index)=>(
+                                                <option key={index+1} value={el?._id}>{el?.categoryName}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="row my-3">
+                                <div className="col-md-2">
+                                    <label>Sub-Category Name</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <select required className="form-control" onChange={(e)=>{setSubCategoryId(e.target.value)}} value={subCategoryId}>
+                                        <option selected disabled value="">Choose Sub-Category</option>
+                                        {
+                                            allSubCategory?.map((el,index)=>(
+                                                <option key={index+1} value={el?._id}>{el?.subcategoryName}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-2">
+                                    <label>Image</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <input className="form-control" type="file" onChange={(e)=>{setName(e.target.value)}} value={name} />
+                                </div>
+                            </div>
+                            <div className='row my-3'>
+                                <div className="col-md-2">
+                                    <label>Price</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <input className="form-control" type="number" min={0} value={price} onChange={(e)=>{setPrice(e.target.value)}} />
+                                </div>
+                            </div>
+                            <div className='row my-3'>
+                                <div className="col-md-2">
+                                    <label>Brand</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <textarea className="form-control" type="text" value={brand} onChange={(e)=>{setBrand(e.target.value)}} />
+                                </div>
+                            </div>
 
-                <label>Name</label>
-                <input value={name} onChange={(e)=>{setName(e.target.value)}}/>
-
-                <br/> <br/>
-               
-                <label>Image</label>
-              <input type="file" value={imageName} onChange={changeImage}/>
-
-                <br/>    <br/>
-            
-                <label>Price</label>
-              <input  type="number" min={"0"} value={price} onChange={(e)=>{setPrice(e.target.value)}}/>
-
-                <br/> <br/>
-            
-                <label>Category</label>
-                <select value={categoryId} onChange={(e)=>{setCategoryId(e.target.value)}}>
-
-                    <option selected disabled value={""}>Choose One </option>
-                    {allCategory?.map((el,index)=>(
-                    <option value={el._id}>{el.categoryName}</option>
-                    ))}
-                </select>
-                
-                <br/>
-                <br/>
-
-                <label>Sub-Category</label>
-                <select value={subCategoryId} onChange={(e)=>{setSubCategoryId(e.target.value)}}>
-                    <option selected disabled value={""}>Choose Sub-cat</option>
-                    {allSubCategory?.map((el,index)=>(
-                    <option value={el._id}>{el.subcategoryName}-{el?.categoryId?.categoryName}</option>
-                  ))}
-                </select>
-                <br/>
-                <br/>
-
-                <label>Brand</label>
-                 <input value={brand} onChange={(e)=>{setBrand(e.target.value)}}/>
-
-                <br/>
-                <br/>
-
-                <label>Quantity</label>
-                <input value={quantity} onChange={(e)=>{setQuantity(e.target.value)}}/>
-
-
-                <br/>
-                <br/>
-                <button>submit</button>
-            </form>
+                            <div className='row my-3'>
+                                <div className="col-md-2">
+                                    <label>Quantity</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <textarea className="form-control" type="text" value={quantity} onChange={(e)=>{setQuantity(e.target.value)}} />
+                                </div>
+                            </div>
+                            <div className="row my-3">
+                            <div className="col-md-4"></div>
+                                <div className='col-md-5 '>
+                                    <button className='form-control btn btn-primary'>Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         </>
     )
 }

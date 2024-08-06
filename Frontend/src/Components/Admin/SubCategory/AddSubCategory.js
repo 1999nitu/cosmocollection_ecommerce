@@ -2,12 +2,20 @@ import { useEffect, useState } from "react"
 import ApiServices from "../../ApiServices"
 import axios from "axios"
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify"
+import { ClipLoader } from "react-spinners";
 
 
 
 export default function AddSubCategory(){
+    const [loading,setLoading]=useState(false)
+    const override={
+        
+        "display":"block",
+        margin:"0 auto",
+        "zIndex":"1",
+    }
     const [allCategory,setAllCategory]=useState([])
     const [categoryId,setCategoryId]=useState("")
 
@@ -37,16 +45,6 @@ const getCategory=()=>{
         console.log(err)
     })
 }
-
-
-    // const token=sessionStorage.getItem("token")
-    // if(!token)
-    //     {
-    //         return <Navigate to={"/login"}/>
-    //     }
-
-
-
         const changeImage=(e)=>{
             setImageName(e.target.value)
             console.log(e.target.files[0]);
@@ -100,52 +98,87 @@ const getCategory=()=>{
             }) }
     return(
         <>
-                <form onSubmit={handleForm}>
+  <div className="page-head_agile_info_w3l">
+                <div className="container">
+                    <h3>
+                    Add <span>Sub-Category </span>
+                    </h3>
+                    <div className="services-breadcrumb">
+                    <div className="agile_inner_breadcrumb">
+                        <ul className="w3_short">
+                        <li>
+                            <Link to={"/admin"}>Home</Link>
+                            <i>|</i>
+                        </li>
+                        <li>Sub-Category</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center my-5">
+                <ClipLoader loading={loading} cssOverride={override} size={120}/>
+            </div>     
+                 <div className={loading?"disabled-screen":""}>
+            <div className="container-fluid my-5"style={{marginTop:"3rem",marginBottom:"3rem"}}>
 
-                <label>Name</label>
-                <input value={name} onChange={(e)=>{setName(e.target.value)}}/>
+                <div className="row">
+                <div className="col-md-2"></div>
+                <div className="col-md-8  border border-3 border-danger py-5 rounded">
+                        <form onSubmit={handleForm}>
+                            <div className="row my-3">
+                                <div className="col-md-2">
+                                    <label>Sub-Category Name</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <input className="form-control" type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+                                </div>
+                            </div>
+                            <div className='row my-3'>
+                                <div className="col-md-2">
+                                    <label>Category</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <select required className="form-control" onChange={(e)=>{setCategoryId(e.target.value)}} value={categoryId}>
 
-                <br/> <br/>
-               
-                <label>Image</label>
-                <input type="file" value={imageName} onChange={changeImage}/>
+                                        <option selected disabled value="">Choose Category</option>
+                                        {
+                                            allCategory?.map((el,index)=>(
+                                                <option key={index+1} value={el?._id}>{el?.categoryName}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-2">
+                                    <label>Image</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <input className="form-control" type="file" onChange={changeImage} value={imageName}/>
+                                </div>
+                            </div>
 
-                <br/> <br/>
-            
-            
-                <label>Category</label>
-                <select value={categoryId} onChange={(e)=>{setCategoryId(e.target.value)}}>
+                            <div className='row'>
+                                <div className="col-md-2">
+                                    <label>Description</label>
+                                </div>
+                                <div className="col-md-10">
+                                    <input className="form-control" type="description" onChange={(e)=>{setDescription(e.target.value)}} value={description}/>
+                                </div>
+                            </div>
 
-                    <option selected disabled value={""}>Choose One </option>
-                    {allCategory?.map((el,index)=>(
-                    <option value={el._id}>{el.categoryName}</option>
-                    ))}
-                </select>
-                <br/>
-                <br/>
-
-                <label>Description</label>
-                <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
-
-                <br/> <br/>
-
-                
-
-                <button>submit</button>
-            </form>
-            
-            <ToastContainer
-             position="bottom-left"
-             autoClose={5000}
-             hideProgressBar={false}
-             newestOnTop={false}
-             closeOnClick
-             rtl={false}
-             pauseOnFocusLoss
-             draggable
-             pauseOnHover
-             theme="dark"
-            />
+                            <div className="row my-3">
+                            <div className="col-md-4"></div>
+                                <div className='col-md-5 '>
+                                    <button className='form-control btn btn-primary'>Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         </>
     )

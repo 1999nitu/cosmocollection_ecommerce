@@ -48,10 +48,14 @@ import UserLogin from './Components/User/UserLogin';
 import AllCart from './Components/User/AllCart';
 import ViewOrder from './Components/Admin/Orders/ViewOrder';
 import UpdateOrder from './Components/Admin/Orders/UpdateOrder';
+import AdminOrder from './Components/Admin/Orders/AdminOrder';
 import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
-import AdminLayout from './Components/Admin/AdminLayout';
+import AdminLayout from './Components/Admin/Adminpage/AdminLayout';
+
+
 import UserOrder from './Components/User/UserOrder';
+import AdminHeader from './Components/Admin/Adminpage/AdminHeader';
 
 
 
@@ -111,6 +115,14 @@ function App() {
         <Route path='/admin/vieworder' element={<ViewOrder/>}/>
         <Route path='/admin/updateorder' element={<UpdateOrder/>}/>
         <Route path='/admin/vieworderdetails' element={<ViewOrderDetails/>}/>
+        <Route path='/admin/adminorder' element={<AdminOrder/>}/>
+
+
+        <Route path='/admin/adminlayout' element={<AdminLayout/>}/>
+        <Route path='/admin/adminheader' element={<AdminHeader/>}/>
+
+
+       
         
 
         {/* <Route path='/apiservices' element={<ApiServices/>}/> */}

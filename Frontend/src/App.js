@@ -51,11 +51,13 @@ import UpdateOrder from './Components/Admin/Orders/UpdateOrder';
 import AdminOrder from './Components/Admin/Orders/AdminOrder';
 import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
-import AdminLayout from './Components/Admin/Adminpage/AdminLayout';
 
 
 import UserOrder from './Components/User/UserOrder';
 import AdminHeader from './Components/Admin/Adminpage/AdminHeader';
+import AdminLayout from './Components/Admin/Adminpage/AdminLayout';
+import Dashboard from './Components/Admin/Adminpage/Dashboard';
+
 
 
 
@@ -120,6 +122,7 @@ function App() {
 
         <Route path='/admin/adminlayout' element={<AdminLayout/>}/>
         <Route path='/admin/adminheader' element={<AdminHeader/>}/>
+        <Route path='/admin/dashboard' element={<Dashboard/>}/>
 
 
        

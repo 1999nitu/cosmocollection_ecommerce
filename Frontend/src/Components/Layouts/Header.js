@@ -150,7 +150,7 @@ export default function Header(){
                 {!!token || userType==2?
                   <>
                   <li className="active menu__item">
-                  <Link className="menu__link" to={"/Home"}>
+                  <Link className="menu__link" to={"/home"}>
                     Home 
                   </Link>
                 </li>
@@ -189,7 +189,7 @@ export default function Header(){
                     </Link>
                   </li>
                   <li className=" menu__item">
-                    <Link to="/admin/vieworderdetails" className="menu__link">
+                    <Link to="/admin/viewusers" className="menu__link">
                       Orders
                     </Link>
                   </li>

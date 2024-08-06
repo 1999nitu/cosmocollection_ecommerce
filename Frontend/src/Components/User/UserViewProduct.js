@@ -132,7 +132,7 @@ useEffect(
                             cart(el?.categoryId?._id, el?.subcategoryId?._id, el?._id)
                           }
                          }>
-                          Add to Cart
+                         <Link to={"/allcart"}> Add to Cart</Link>
                          </button>
 
 

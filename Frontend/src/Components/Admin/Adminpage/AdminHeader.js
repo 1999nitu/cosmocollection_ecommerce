@@ -148,9 +148,14 @@ export default function AdminHeader(){
               <ul className="nav navbar-nav menu__list">
                 {/* {authenticate && userType==1  ? */}
                   {/* <> */}
-                <li className="active menu__item">
+                  <li className="active menu__item">
                   <Link className="menu__link" to={"/admin"}>
                     Home 
+                  </Link>
+                </li>
+                <li className="active menu__item">
+                  <Link className="menu__link" to={"/admin/dashboard"}>
+                    Dashboard 
                   </Link>
                 </li>
                 <li className="dropdown menu__item">

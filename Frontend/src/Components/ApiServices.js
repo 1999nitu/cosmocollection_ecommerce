@@ -215,7 +215,7 @@ class ApiServices{
             "Authorization":token
         }
         console.log(token)
-        return axios.get(BASE_URL+"dashboard",{headers:header})
+        return axios.get(BASE_URL+"apis/user/dashboard",{headers:header})
     }
 
     getall(data){

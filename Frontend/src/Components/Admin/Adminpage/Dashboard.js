@@ -2,7 +2,7 @@ import { ClipLoader } from "react-spinners"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import ApiServices from "../ApiServices";
+import ApiServices from "../../ApiServices";
 export default function Dashboard(){
     const [loading,setLoading]=useState(true)
     const override={
@@ -14,11 +14,11 @@ export default function Dashboard(){
     const [orders,setOrders]=useState()
     const [customers,setCustomers]=useState()
     useEffect(()=>{
-        ApiServices.getDashboard().then((data)=>{
+        ApiServices.getDashboard().then((res)=>{
             setLoading(false)
-            setProducts(data.data.totalProducts)
-            setOrders(data.data.totalOrders)
-            setCustomers(data.data.totalCustomers)
+            setProducts(res.data.totalProducts)
+            setOrders(res.data.totalOrders)
+            setCustomers(res.data.totalCustomers)
             // console.log(data)
         }).catch((error)=>{
             console.log(error)
@@ -53,7 +53,8 @@ export default function Dashboard(){
  </div>     
                  <div className={loading?"disabled-screen":""}>
         
-            <div className="container-fluid my-5 ">
+            <div className="container-fluid my-5"style={{marginTop:"4rem",marginBottom:"4rem"}}>
+
                 <div className="row text-center">
                     <div className="col-md-1"></div>
                     <div className="col-md-5 my-3 ">
@@ -76,7 +77,7 @@ export default function Dashboard(){
                     <div className="col-md-3"></div>
                     <div className="col-md-5 my-5">
                         <div className="card">
-                            <h1 className="card-title">Total Customers</h1>
+                            <h1 className="card-title">Total Users</h1>
                             <div className="card-body text-center">
                                 <h1>{customers}</h1>
                             </div>

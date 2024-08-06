@@ -171,6 +171,7 @@ const getSubCategory=()=>{
                                 </div>
                                 <div className="col-md-10">
                                    <input type="text" className="form-control" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+                                   
                                 </div>
                             </div>
                             <div className='row my-3'>

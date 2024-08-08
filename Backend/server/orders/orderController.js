@@ -10,7 +10,7 @@ add = async (req,res) => {
     let orderObj = new orderModel()
     orderObj.name = req.body.name
     console.log(req.body.name)
-    orderObj.productImage = "product/" + req.file.filename
+    // orderObj.productImage = req.body.filename
     orderObj.address = req.body.address
     orderObj.totalPrice = req.body.totalPrice
     orderObj.userId=req.body.userId

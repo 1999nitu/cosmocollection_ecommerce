@@ -64,7 +64,7 @@ export default function AddCategory(){
                 setImage({})
                 setImageName("")
                 
-                nav("/managecategory")
+                nav("/admin/managecategory")
 
             }else{
                 toast.error(res.data.message)  

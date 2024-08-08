@@ -115,13 +115,13 @@ const changeStatus=(id,status)=>{
                                 {el.status==true?"Active":"In-active"}
                                 </td>
                                 <td>
-                                    <Link to={"/singlecategory/" +el._id}
+                                    <Link to={"/admin/singlecategory/" +el._id}
                                     className="btn btn-info">
                                         <i className="fa fa-eye"></i>
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link to={"/editcategory/" +el._id}
+                                    <Link to={"/admin/editcategory/" +el._id}
                                     className="btn btn-success">
                                         <i className="fa fa-edit"></i>
                                     </Link>

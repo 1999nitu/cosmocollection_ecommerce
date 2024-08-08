@@ -4,7 +4,7 @@ const OrderSchema = new mongoose.Schema({
     name: { type: String, default: null},
     address: { type: String, default: null},
     totalPrice: { type: Number, default: 0},
-    productImage: {type: String, default: "no_image.jpg"},
+    // productImage: {type: String, default: "no_image.jpg"},
     userId: { type: mongoose.Schema.Types.ObjectId, default: null, ref:'users'},
     orderDetails: [
         {

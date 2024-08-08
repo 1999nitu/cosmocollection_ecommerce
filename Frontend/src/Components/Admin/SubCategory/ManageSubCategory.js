@@ -91,13 +91,13 @@ const changeStatus=(id,status)=>{
                                 <td> {el._id} </td>
                                 <td>Description1 </td>
                                 <td>
-                                    <Link to={"/singlesubcategory/" +el._id}
+                                    <Link to={"/admin/singlesubcategory/" +el._id}
                                     className="btn btn-info">
                                         <i className="fa fa-eye"></i>
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link to={"/editsubcategory/"+el._id}
+                                    <Link to={"/admin/editsubcategory/"+el._id}
                                     className="btn btn-success">
                                         <i className="fa fa-edit"></i>
                                     </Link>

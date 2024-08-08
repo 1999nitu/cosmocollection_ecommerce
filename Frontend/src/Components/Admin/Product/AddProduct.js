@@ -209,7 +209,7 @@ const getSubCategory=()=>{
                                     <label>Image</label>
                                 </div>
                                 <div className="col-md-10">
-                                    <input className="form-control" type="file" onChange={(e)=>{setName(e.target.value)}} value={name} />
+                                    <input className="form-control" type="file" onChange={(e)=>{setImageName(e.target.value);setImage(e.target.files[0])}} value={imageName} />
                                 </div>
                             </div>
                             <div className='row my-3'>

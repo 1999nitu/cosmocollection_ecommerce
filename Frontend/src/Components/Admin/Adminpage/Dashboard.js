@@ -16,9 +16,9 @@ export default function Dashboard(){
     useEffect(()=>{
         ApiServices.getDashboard().then((res)=>{
             setLoading(false)
-            setProducts(res.data.totalProducts)
-            setOrders(res.data.totalOrders)
-            setCustomers(res.data.totalCustomers)
+            setProducts(res.data.totalproduct)
+            setOrders(res.data.totalcategory)
+            setCustomers(res.data.totalCustomer)
             // console.log(data)
         }).catch((error)=>{
             console.log(error)
@@ -67,7 +67,7 @@ export default function Dashboard(){
                     </div>
                     <div className="col-md-5 my-3">
                         <div className="card">
-                            <h1 className="card-title">Total Orders</h1>
+                            <h1 className="card-title">Total Category</h1>
                             <div className="card-body text-center">
                                 <h1>{orders}</h1>
                             </div>

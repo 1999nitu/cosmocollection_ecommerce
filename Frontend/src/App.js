@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from 'react';
 
@@ -20,7 +19,7 @@ import EditCategory from './Components/Admin/Category/EditCategory';
 import ViewSingleCategory from './Components/Admin/Category/ViewSingleCategory';
 
 import AddSubCategory from './Components/Admin/SubCategory/AddSubCategory';
-import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';1
+import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';
 import EditSubCategory from './Components/Admin/SubCategory/EditSubCategory';
 import ViewSingleSubCategory from './Components/Admin/SubCategory/ViewSingleSubCategory';
 
@@ -51,16 +50,9 @@ import UpdateOrder from './Components/Admin/Orders/UpdateOrder';
 import AdminOrder from './Components/Admin/Orders/AdminOrder';
 import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
-
-
 import UserOrder from './Components/User/UserOrder';
 import AdminLayout from './Components/Admin/Adminpage/AdminLayout';
 import Dashboard from './Components/Admin/Adminpage/Dashboard';
-
-
-
-
-
 
 function App() {
  //npm i react-router-dom
@@ -74,7 +66,6 @@ function App() {
         <Route path='/mens' element={<Mens/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/womens' element={<Womens/>}/>
-     
 
         <Route path='/*' element={<Error/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -87,7 +78,6 @@ function App() {
         <Route path='/userviewcategory' element={<UserViewCategory/>}/>
         <Route path='/allcart' element={<AllCart/>} />
         <Route path='/userorder' element={<UserOrder/>} />
-
         </Route>
       
 
@@ -118,16 +108,11 @@ function App() {
         <Route path='/admin/vieworderdetails' element={<ViewOrderDetails/>}/>
         <Route path='/admin/adminorder' element={<AdminOrder/>}/>
 
-
         <Route path='/admin/adminlayout' element={<AdminLayout/>}/>
-        {/* <Route path='/admin/adminheader' element={<AdminHeader/>}/> */}
+        <Route path='/admin/adminheader' element={<AdminHeader/>}/>
         <Route path='/admin/dashboard' element={<Dashboard/>}/>
 
-
-       
-        
-
-        {/* <Route path='/apiservices' element={<ApiServices/>}/> */}
+        <Route path='/apiservices' element={<ApiServices/>}/> 
         </Route>
 
         </Routes>

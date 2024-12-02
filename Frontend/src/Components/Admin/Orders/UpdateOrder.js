@@ -38,8 +38,8 @@ export default function UpdateOrder() {
         setLoading(true)
         let data = {
             orderStatus: orderStatus,
-            // shipmentUrl:shipurl,
-            // trackingId:tracking_id,
+            shipmentUrl:shipurl,
+            trackingId:tracking_id,
             _id: oid
         }
         ApiServices.updateorder(data).then((data) => {

@@ -20,7 +20,7 @@ import EditCategory from './Components/Admin/Category/EditCategory';
 import ViewSingleCategory from './Components/Admin/Category/ViewSingleCategory';
 
 import AddSubCategory from './Components/Admin/SubCategory/AddSubCategory';
-import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';1
+import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';
 import EditSubCategory from './Components/Admin/SubCategory/EditSubCategory';
 import ViewSingleSubCategory from './Components/Admin/SubCategory/ViewSingleSubCategory';
 

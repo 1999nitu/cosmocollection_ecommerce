@@ -14,8 +14,8 @@ export default function UpdateOrder(){
         "zIndex":"1",
     }
     const [orderStatus,setOrderStatus]=useState()
-    // const [shipurl, setShip]=useState()
-    // const [tracking_id,setTrackingId]=useState()
+    const [shipurl, setShip]=useState()
+    const [tracking_id,setTrackingId]=useState()
     const param=useParams()
     const oid=param.id
     useEffect(()=>{

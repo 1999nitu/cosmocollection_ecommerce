@@ -20,7 +20,7 @@ import EditCategory from './Components/Admin/Category/EditCategory';
 import ViewSingleCategory from './Components/Admin/Category/ViewSingleCategory';
 
 import AddSubCategory from './Components/Admin/SubCategory/AddSubCategory';
-import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';
+import ManageSubCategory from './Components/Admin/SubCategory/ManageSubCategory';1
 import EditSubCategory from './Components/Admin/SubCategory/EditSubCategory';
 import ViewSingleSubCategory from './Components/Admin/SubCategory/ViewSingleSubCategory';
 
@@ -54,7 +54,6 @@ import ViewOrderDetails from './Components/Admin/Orders/ViewOrderDetails';
 
 
 import UserOrder from './Components/User/UserOrder';
-import AdminHeader from './Components/Admin/Adminpage/AdminHeader';
 import AdminLayout from './Components/Admin/Adminpage/AdminLayout';
 import Dashboard from './Components/Admin/Adminpage/Dashboard';
 
@@ -121,7 +120,7 @@ function App() {
 
 
         <Route path='/admin/adminlayout' element={<AdminLayout/>}/>
-        <Route path='/admin/adminheader' element={<AdminHeader/>}/>
+        {/* <Route path='/admin/adminheader' element={<AdminHeader/>}/> */}
         <Route path='/admin/dashboard' element={<Dashboard/>}/>
 
 

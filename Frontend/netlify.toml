@@ -1,7 +1,8 @@
 [build]
-  base = "Frontend"  # Ensure this points to the root of your frontend folder
-  command = "CI= npm run build"
-  publish = "Frontend/build"  # Correct the publish path to point to the build folder
+  base = "Frontend"  # This points to the root folder where your frontend project is
+  command = "CI= npm run build"  # Build command
+  publish = "Frontend/build"  # The correct build directory path
+
 
 # Redirects for React Router or similar client-side routing
 [[redirects]]

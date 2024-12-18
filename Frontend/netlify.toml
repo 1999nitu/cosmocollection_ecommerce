@@ -1,12 +1,12 @@
 [build]
   # The base directory where your frontend code is located
-  base = "frontend"
+  base = "Frontend"
   
   # The command that Netlify will run to build the project
   command = "CI= npm run build"
   
   # The directory where Netlify should look for the build output
-  publish = "frontend/build"
+  publish = "Frontend/build"
 
 # Optional: Redirects for client-side routing (useful for React Router or other frontend routing libraries)
 [[redirects]]
@@ -15,6 +15,3 @@
   status = 200
   force = true
 
-# Optional: Set the directory for serverless functions (if you have any functions in your project)
-[[functions]]
-  directory = "frontend/netlify/functions"

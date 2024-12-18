@@ -36,7 +36,6 @@ import EditCoupon from './Components/Admin/Coupons/EditCoupon';
 
 import Register from './Components/Auth/Register';
 import Login from './Components/Auth/Login';
-// import ApiServices from './Components/ApiServices';
 
 import UserViewSubCategory from './Components/User/UserViewSubCategory';
 import UserViewProduct from './Components/User/UserViewProduct';
@@ -113,7 +112,6 @@ function App() {
         <Route path='/admin/adminheader' element={<AdminHeader/>}/>
         <Route path='/admin/dashboard' element={<Dashboard/>}/>
 
-        // <Route path='/apiservices' element={<ApiServices/>}/> 
         </Route>
 
         </Routes>

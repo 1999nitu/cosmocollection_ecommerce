@@ -1,17 +1,11 @@
 [build]
-  # The base directory where your frontend code is located
-  base = "Frontend"
-  
-  # The command that Netlify will run to build the project
+  base = "Frontend"  # Ensure this points to the root of your frontend folder
   command = "CI= npm run build"
-  
-  # The directory where Netlify should look for the build output
-  publish = "Frontend/build"
+  publish = "Frontend/build"  # Correct the publish path to point to the build folder
 
-# Optional: Redirects for client-side routing (useful for React Router or other frontend routing libraries)
+# Redirects for React Router or similar client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = true
-

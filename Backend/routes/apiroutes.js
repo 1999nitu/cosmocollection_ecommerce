@@ -62,6 +62,7 @@ const productupload = multer({ storage: productstorage })
 app.get('/', (req, res) => {
   res.send('Welcome to the Cosmocollection Backend!');
 });
+
 router.post("/user/register",userController.register)
 router.post("/user/login",userController.login)
 

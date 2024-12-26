@@ -59,7 +59,7 @@ const productstorage = multer.diskStorage({
 const productupload = multer({ storage: productstorage })
 //dislstorage end
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.send('Welcome to the Cosmocollection Backend!');
 });
 

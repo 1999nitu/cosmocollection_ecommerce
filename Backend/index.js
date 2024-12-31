@@ -8,7 +8,9 @@ app.use(cors())
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json({limit:'50mb'}))
-
+app.get("/", (req, res) => {
+    res.send("Welcome to the Cosmocollection Backend!");
+});
 const routes = require("./routes/apiroutes")    
 app.use("/apis",routes)
 

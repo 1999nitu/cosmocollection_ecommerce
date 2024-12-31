@@ -1,7 +1,7 @@
 import axios from "axios"
 import * as qs from "qs"
 
-export const BASE_URL ="http://localhost:4000/"
+export const BASE_URL ="https://cosmocollection-ecommerce-2.onrender.com/"
 class ApiServices{
 
     allcategory()
